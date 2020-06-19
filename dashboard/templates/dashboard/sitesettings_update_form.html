@@ -1,0 +1,13 @@
+{% extends './admin-dash/main.html' %}
+
+{% block content %}
+<div class="site-settings pt-3 pb-3">
+<form method="post" action="" class="m-auto mt-3">{% csrf_token %}
+  <h5 class="text-center text-monospace"> Site Settings </h5>
+  <hr class="my-4">
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-primary btn-md float-right" value="Update">
+</form>
+</div>
+
+{% endblock %}

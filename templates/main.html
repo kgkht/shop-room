@@ -1,0 +1,40 @@
+<html>
+  <head>
+    {% load static %}
+    {% if site_info %}
+    {% include 'meta.html' %}
+    {% else %}
+    <meta name="description" content="shop description">
+    <meta name="keywords" content="shop keywords">
+    <meta name="author" content="shop author">
+    <title> Site Title</title>
+    {% endif %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+  </head>
+  <body>
+    {% block content %}
+
+
+    {% endblock %}
+
+
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery.slim.min.js' %}"></script>
+    <script src="{% static 'js/popover.js' %}"> </script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/feather.js' %}"></script>
+    <script>
+      feather.replace({'width':'18','height':'18'})
+    </script>
+
+  </body>
+</html>

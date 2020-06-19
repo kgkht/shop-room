@@ -1,0 +1,71 @@
+.site-settings form {
+    padding: 50px 30px;
+    padding-top: 25px;
+    box-shadow: 0px 0px 3px 0px;
+    max-width:420px;
+    
+}
+
+input[type='text'], input[type='email'], input[type='password'], input[type='date'], textarea, input[type='file'] {
+    display: block;
+    border-radius: 0px;
+    border: 0px;
+    border-bottom: 1px solid #333;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+    background: #fafafa;
+    width: 350px;
+    line-height: 25px;
+}
+
+input[type='submit'] {
+    padding: 5px 15px;
+    border: 1px solid #ccc;
+    outline: none;
+    box-shadow: 0px 1px 1px 0px;
+}
+
+.site-settings form p label{
+    font-size:14px;
+    font-family: 'Monospace';
+}
+
+.site-settings form p span{
+    font-size: 12px;
+}
+
+
+
+
+
+/*
+*
+*
+*
+*/
+#friend-login{
+    margin: 100px auto;
+    width: 420px;
+    min-width: 250px;
+    box-shadow: 0px 5px 10px #ccc;
+    background: #fafafa;
+}
+#friend-login form{
+    text-align: center;
+}
+#friend-login form p input {
+    width: 100%;
+}
+
+#friend-login form p{
+    text-align: left;
+}
+
+#friend-login form label{
+    font-size: 13px;
+    margin-bottom: 0px;
+}
+#friend-login form .errorlist.nonfield{
+    display: none!important;
+}

@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+
+{% block content %}
+{% load static %}
+<div class="container-fluid" style="">
+
+  <div class="row justify-content-md-center">
+    <div class="col-auto" >
+            
+   {% if next %}
+    {% if user.is_authenticated %}
+  <div class="alert alert-danger mt-3" role="alert">
+    Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.
+  </div>
+  
+    {% else %}
+  <div class="alert alert-danger" role="alert">
+    Please login to see this page.</div>
+ 
+    {% endif %}
+  {% endif %}
+  <div id="friend-login">
+    <div class="p-3  mb-3">
+      <h4 class="text-center mt-2 text-monospace"><strong> Login </strong> </h4>
+      <hr class="my-4">
+      <form method="post" action="{% url 'login' %}" class="">
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="submit" class="btn btn-link btn-md mt-3" value="login" />
+	<input type="hidden" name="next" value="{{ next }}" />
+      </form>
+    </div>
+  </div>
+
+  {% if form.errors %}
+  <div class="alert alert-warning" role="alert">
+    Your username and password didn't match. Please try again.
+  </div>
+  
+  {% endif %}
+    </div>
+  
+  
+  
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <!--<p><a href="{% url 'password_reset' %}">Lost password?</a></p>-->
+  
+  </div>
+</div>
+
+{% endblock %}
