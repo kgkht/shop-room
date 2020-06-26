@@ -1,24 +1,32 @@
-<div class="">
-
-  <div class="p-3 pt-0 pb-0"> <i data-feather="user"></i>
-    <strong class="align-bottom ">Admin Name </strong> </div>
+<div class="" style="min-height:720px;">
+  <div class="pb-2 pt-3 text-center btn-link  text-light align-items-center">
+    <i data-feather="user"></i> <strong class="text-monospace">{{user.username}} </strong>
+    </div>
   
-  <div class="list-group list-group-flush bg-info">
-
-    <a href="#" class="list-group-item list-group-item-action bg-info text-light">
-      <i data-feather="command"></i> Dashboard
-    </a>
-    <a href="#" class="list-group-item list-group-item-action bg-info text-light">
-      <i data-feather="box"></i> Products</a>
-    <a href="#" class="list-group-item list-group-item-action bg-info text-light">
-      <i data-feather="check-circle"></i> Category</a>
-    <a href="#" class="list-group-item list-group-item-action bg-info text-light">
-      <i data-feather="shopping-bag"></i> Warehouse</a>
-    <a href="{% url 'dashboard:site-settings' 1 %}" class="list-group-item list-group-item-action bg-info text-light">
-      <i data-feather="users"></i> Users </a>
-
-    <a href="{% url 'dashboard:site-settings' 1 %}" class="list-group-item list-group-item-action bg-info text-light">
-      <i data-feather="settings"></i> Settings </a>
+  <div class="p-3 pt-0 pb-0 mb-3ext-light">
+    <div class="list-group list-group-flush">
+      <a href="" class="list-group-item list-group-action bg-info text-light">
+	<i data-feather="command"></i> Dashboard
+      </a>
+      <a href="#" class="list-group-item list-group-item-action bg-info text-light">
+	<i data-feather="file-text"></i> Sales</a>
+      <a href="{% url 'dashboard:all-products' %}" class="list-group-item list-group-item-action bg-info text-light">
+	<i data-feather="box"></i> Products</a>
+      <a href="#" class="list-group-item list-group-item-action bg-info text-light">
+	<i data-feather="check-circle"></i> Category</a>
+      <a href="#" class="list-group-item list-group-item-action bg-info text-light">
+	<i data-feather="shopping-bag"></i> Warehouse</a>
+      {% if user.is_staff %}
+      <a href="{% url 'dashboard:all-users' %}" class="list-group-item list-group-item-action bg-info text-light">
+	<i data-feather="users"></i> Users Profile </a>
+      {% endif %}
+      <a href="{% url 'dashboard:account_update' user.id  %}" class="list-group-item list-group-item-action bg-info text-light">
+	<i data-feather="user-check"></i> My Account </a>
+      <a href="{% url 'dashboard:site-settings' 1 %}" class="list-group-item list-group-item-action bg-info text-light">
+	<i data-feather="settings"></i> Site Settings </a>
+      <a href="{% url 'logout'  %}" class="list-group-item list-group-item-action bg-info text-light">
+	<i data-feather="log-out"></i> Logout </a>
+      </div>
 
   </div>
   

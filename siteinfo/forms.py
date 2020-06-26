@@ -6,3 +6,4 @@ class SettingsForm(ModelForm):
     class Meta:
         model = SiteSettings
         fields = '__all__'
+ 

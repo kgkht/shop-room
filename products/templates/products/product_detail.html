@@ -1,0 +1,270 @@
+{% extends 'dashboard/admin-dash/main.html' %}
+
+{% block title %}
+<title> Product Detail </title>
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row mt-5">
+
+  <div class="col-12 col-sm-6">
+    
+    <!-- Swiper -->
+    <div class="main-swiper-wrap">
+    <div class="swiper-container gallery-top">
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+	{% if product.productimages.featured_image %}
+	<div class="swiper-slide text-center" style="background-image:url({{product.productimages.featured_image.url}});"> <span class="align-bottom text-warning">Featured</span> </div>
+	{% endif %}
+	
+	{% if product.productimages.image1 %}
+	<div class="swiper-slide text-center" style="background-image:url({{product.productimages.image1.url}});"> <span class="align-bottom text-warning">Image 1</span></div>
+	{% endif %}
+	
+	{% if product.productimages.image2 %}
+	<div class="swiper-slide text-center" style="background-image:url({{product.productimages.image2.url}});"><span class="align-bottom text-warning">Image 2</span></div>
+	{% endif %}
+	
+	{% if product.productimages.image3 %}
+	<div class="swiper-slide text-center" style="background-image:url({{product.productimages.image3.url}});"><span class="align-bottom text-warning">Image 3</span></div>
+	{% endif %}
+      </div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next swiper-button-black"></div>
+      <div class="swiper-button-prev swiper-button-black"></div>
+    </div>
+    <div class="swiper-container gallery-thumbs">
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+	{% if product.productimages.featured_image %}
+	<div class="swiper-slide" style="background-image:url({{product.productimages.featured_image.url}});"></div>
+	{% endif %}
+	
+	{% if product.productimages.image1 %}
+	<div class="swiper-slide" style="background-image:url({{product.productimages.image1.url}});"></div>
+	{% endif %}
+	
+	{% if product.productimages.image2 %}
+	<div class="swiper-slide" style="background-image:url({{product.productimages.image2.url}});"></div>
+	{% endif %}
+	
+	{% if product.productimages.image3 %}
+	<div class="swiper-slide" style="background-image:url({{product.productimages.image3.url}});"></div>
+ 	{% endif %}
+      </div>
+    </div>
+    </div>
+    
+    
+  </div>
+
+  <div class="col-12 col-sm-6">
+    <h5> Summary </h5>
+    <table class="table table-sm mb-5">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> Name </td>
+      <td> {{product.name}} </td>
+    </tr>
+
+    <tr>
+      <td> Model </td>
+      <td> {{product.model_number}} </td>
+    </tr>
+
+    
+    <tr>
+      <td> Dimension </td>
+      <td> {{product.dimension}} </td>
+    </tr>
+
+    <tr>
+      <td> Summary </td>
+      <td> {{product.summary}} </td>
+    </tr>
+
+
+    <tr>
+      <td> Basic Unit</td>
+      <td> {{product.basic_unit}} </td>
+    </tr>
+
+    <tr>
+      <td> Category </td>
+      <td> <p> {% for main_cat in product.category1.all %} {{main_cat}}, {% endfor %} </p> <p> {% for sub_cat in product.category2.all %} {{sub_cat}},{% endfor %} </td>
+    </tr>
+    <tr>
+      <td> Limited </td>
+      <td> {{product.limited}} </td>
+    </tr>
+
+    <tr>
+      <td> Can Sale </td>
+      <td> {{product.active_for_sale}} </td>
+    </tr>
+
+    <tr>
+      <td> Warehouse </td>
+      <td> {{product.warehouse}} </td>
+    </tr>
+
+    
+    <tr>
+      <td> ID </td>
+      <td> {{product.id}} </td>
+    </tr>
+    
+    
+  </tbody>
+    </table>
+    
+
+    <h5> Stock </h5>
+    <table class="table table-sm mb-5">
+  <tbody>
+    <tr>
+      <td>Stock </td>
+      <td> {{ product.stock.stock }}</td>
+    </tr>
+
+    <tr>
+      <td> Last Update </td>
+      <td> {{product.stock.last_update}} </td>
+    </tr>
+    
+    
+  </tbody>
+    </table>
+    
+
+    
+    <h5> Prices </h5>
+    <table class="table table-sm mb-5">
+  <tbody>
+    <tr>
+      <td>Normal  </td>
+      <td> {{ product.price.normal_price }}</td>
+    </tr>
+
+    <tr>
+      <td> Lowest </td>
+      <td> {{product.price.low_price}} </td>
+    </tr>
+
+
+    
+    <tr>
+      <td> 10x Price </td>
+      <td> {{product.price.tenth_price}} </td>
+    </tr>
+
+    
+    <tr>
+      <td> Base </td>
+      <td> {{product.price.base_price}} </td>
+    </tr>
+
+    
+    <tr>
+      <td> Last Update </td>
+      <td> {{product.price.last_update_time}} </td>
+    </tr>
+    
+    
+    
+    
+  </tbody>
+    </table>
+    
+
+  
+    
+  </div>
+  
+
+</div>
+
+
+
+{% endblock %}
+
+
+{% block footer %}
+<script src="https://unpkg.com/swiper/js/swiper.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+  <!-- Initialize Swiper -->
+  <script>
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      loopedSlides: 5, //looped slides should be the same
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      loop: true,
+      loopedSlides: 5, //looped slides should be the same
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: galleryThumbs,
+      },
+    });
+  </script>
+
+
+    <!-- Demo styles -->
+  <style>
+    .swiper-container {
+      width: 100%;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .swiper-slide {
+      background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 450px;
+    widht: auto;
+    }
+
+    .gallery-top {
+      height: 100%;
+      width: 100%;
+    }
+
+    .gallery-thumbs {
+      height: 50px;
+      box-sizing: border-box;
+      padding: 5px 0;
+    }
+
+    .gallery-thumbs .swiper-slide {
+      height: 100%;
+      opacity: 0.4;
+    }
+
+    .gallery-thumbs .swiper-slide-thumb-active {
+      opacity: 1;
+    }
+  </style>
+  
+{% endblock %}

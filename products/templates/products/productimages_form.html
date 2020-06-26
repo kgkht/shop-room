@@ -1,0 +1,15 @@
+{% extends 'dashboard/admin-dash/main.html' %}
+
+{% block content %}
+<div class="row justify-content-md-center">
+  <div class="col-auto">
+    <form action="" method="post" enctype="multipart/form-data" >
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" class="btn btn-success btn-md" value="Next >>">
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

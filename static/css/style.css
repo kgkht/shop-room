@@ -5,33 +5,43 @@
     max-width:420px;
     
 }
+textarea{
+    height: 120px;
+    
+}
 
-input[type='text'], input[type='email'], input[type='password'], input[type='date'], textarea, input[type='file'] {
+
+input[type='text'], input[type='email'], input[type='password'], input[type='date'], textarea, input[type='file'], input , select{
     display: block;
-    border-radius: 0px;
-    border: 0px;
-    border-bottom: 1px solid #333;
     outline: none;
     padding: 5px;
     font-size: 14px;
-    background: #fafafa;
     width: 350px;
     line-height: 25px;
+    background: none;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding: 5px 7px;
 }
 
 input[type='submit'] {
-    padding: 5px 15px;
     border: 1px solid #ccc;
     outline: none;
     box-shadow: 0px 1px 1px 0px;
-}
+    width: auto;
+    padding: 5px 30px;
+    font-weight: bold;
+    position: relative;
 
-.site-settings form p label{
+}
+input[type='checkbox']{
+    width: 15px;
+}
+form p label{
     font-size:14px;
     font-family: 'Monospace';
 }
-
-.site-settings form p span{
+span.helptext{
     font-size: 12px;
 }
 

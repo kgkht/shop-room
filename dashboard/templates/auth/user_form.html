@@ -1,0 +1,16 @@
+{% extends 'dashboard/admin-dash/main.html'%}
+
+
+{% block content %}
+<div class="row justify-content-md-center">
+  <div class="col-auto mt-5">
+    <h5 class="text-center text-monospace"> Account Profile </h5>
+    <hr class="my-4">
+<form action="" method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input class="btn btn-md btn-success"  type="submit" value="Update">
+</form>
+</div>
+
+{% endblock %}

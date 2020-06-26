@@ -8,13 +8,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">-->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+    {% block title %}
     <title>Admin Dashboard</title>
+    {% endblock %}
   </head>
-  <body>
-    <div class="container-fluid">
-      <div class="row" style="min-height:100%;">
+  <body style="height:100%;">
+    <div class="container-fluid" >
+      <div class="row">
 	<div class="col bg-info text-light ">
 	  {% include './sidebar.html' %}
 	</div>
@@ -35,10 +37,21 @@
     <script src="{% static 'js/jquery.slim.min.js' %}"></script>
     <script src="{% static 'js/popover.js' %}"> </script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
     <script src="{% static 'js/feather.js' %}"></script>
+
+    <!--<script src="{% static 'js/mdb.min.js' %}"></script>-->
+    
     <script>
+
+
+
       feather.replace({'width':'18','height':'18'})
+
+
     </script>
-   
+    {% block footer %}
+    {% endblock %}
   </body>
 </html>
