@@ -104,10 +104,10 @@ class ProductImages(models.Model):
 class Stock(models.Model):
     product_id = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True)
     stock = models.IntegerField()
-    last_update = models.DateTimeField(auto_now=False, default=now_time.now())
+    last_update = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return str(self.stock)
+        return str(self.product_id)
 
 
 
@@ -121,5 +121,5 @@ class Price(models.Model):
     last_update_time = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return str(self.normal_price)
+        return str(self.product_id)
 

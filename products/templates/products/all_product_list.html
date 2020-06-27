@@ -29,11 +29,11 @@
       <th scope="row">{{forloop.counter}}</th>
       <td><a href="{{product.get_absolute_url}}">{{product.name}}</a></td>
       <td>
-	<strong class="{% if product.stock.stock < 10 %}  text-warning {% else %} text-success {% endif %} "> {{product.stock}} </strong>
+	<strong class="{% if product.stock.stock < 10 %}  text-warning {% else %} text-success {% endif %} "> {{product.stock.stock}} </strong>
 			      
       </td>
       <td>
-	$ {{product.price}}
+	$ {{product.price.normal_price}}
       </td>
       <td>
 	<img src="{{ product.productimages.featured_image.url }}" width="20px" height=auto>

@@ -113,6 +113,15 @@ class ProductCreateView(PermissionRequiredMixin, CreateView):
     success_url = reverse_lazy('dashboard:product_stock_create')
 
 
+class ItemSummaryUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'is_superuser'
+    model = Product
+    fields = '__all__'
+
+    def get_success_url(self, **kwargs):         
+        return reverse_lazy("dashboard:product-detail", args=(self.kwargs['pk'],))
+
+    
 
     
 class PriceCreateView(PermissionRequiredMixin, CreateView):
@@ -122,6 +131,15 @@ class PriceCreateView(PermissionRequiredMixin, CreateView):
     success_url = reverse_lazy('dashboard:product_images_create')
 
 
+class PriceUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'is_superuser'
+    model = Price
+    fields = ['low_price', 'normal_price', 'tenth_price', 'base_price']
+
+    def get_success_url(self, **kwargs):         
+        return reverse_lazy("dashboard:product-detail", args=(self.kwargs['pk'],))
+
+    
     
 
 class StockCreateView(PermissionRequiredMixin, CreateView):
@@ -131,10 +149,32 @@ class StockCreateView(PermissionRequiredMixin, CreateView):
     success_url = reverse_lazy('dashboard:product_price_create')
 
 
-    
+class StockUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'is_superuser'
+    model = Stock
+    fields = ['stock']
+
+    def get_success_url(self, **kwargs):         
+        return reverse_lazy("dashboard:product-detail", args=(self.kwargs['pk'],))
+
+
+
 
 class ProductImagesCreateView(PermissionRequiredMixin, CreateView):
     permission_required = 'is_superuser'
     model = ProductImages
     fields = '__all__'
     success_url = reverse_lazy('dashboard:all-products')
+
+
+
+    
+class ProductImagesUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'is_superuser'
+    model = ProductImages
+    fields = ['featured_image', 'image1', 'image2', 'image3']
+
+    def get_success_url(self, **kwargs):         
+        return reverse_lazy("dashboard:product-detail", args=(self.kwargs['pk'],))
+
+    

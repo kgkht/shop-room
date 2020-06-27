@@ -15,6 +15,7 @@
   <div class="col-12 col-sm-6">
     
     <!-- Swiper -->
+    <a href="{% url 'dashboard:product_images_update' product.id%}" > <i data-feather="edit"></i>  Edit </a>
     <div class="main-swiper-wrap">
     <div class="swiper-container gallery-top">
       <div class="swiper-wrapper">
@@ -65,7 +66,7 @@
   </div>
 
   <div class="col-12 col-sm-6">
-    <h5> Summary </h5>
+    <h5> Summary  <a href="{% url 'dashboard:product_item_update' product.id%}" class="ml-3" > <i data-feather="edit"></i>  Edit </a></h5>
     <table class="table table-sm mb-5">
   <thead>
     <tr>
@@ -131,7 +132,7 @@
     </table>
     
 
-    <h5> Stock </h5>
+    <h5> Stock  <a href="{% url 'dashboard:product_stock_update' product.id%}" class="ml-5"> <i data-feather="edit"></i>  Edit </a></h5>
     <table class="table table-sm mb-5">
   <tbody>
     <tr>
@@ -143,14 +144,14 @@
       <td> Last Update </td>
       <td> {{product.stock.last_update}} </td>
     </tr>
-    
+
     
   </tbody>
     </table>
     
 
     
-    <h5> Prices </h5>
+    <h5> Prices <a href="{% url 'dashboard:product_price_update' product.id%}" class="ml-5"> <i data-feather="edit"></i>  Edit </a> </h5>
     <table class="table table-sm mb-5">
   <tbody>
     <tr>

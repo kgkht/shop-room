@@ -21,8 +21,17 @@ urlpatterns = [
     path('products/', views.ProductsListView.as_view(), name='all-products'),
     path('product/detail/<uuid:pk>/', views.ProductDetailView.as_view(), name='product-detail'),
     path('product/item/create', views.ProductCreateView.as_view(), name='product_item_create'),
+    path('product/summary/<uuid:pk>/update', views.ItemSummaryUpdateView.as_view(), name='product_item_update'),
+    
     path('product/price/create', views.PriceCreateView.as_view(), name='product_price_create'),
+    path('product/price/<uuid:pk>/update', views.PriceUpdateView.as_view(), name='product_price_update'),
+    
     path('product/stock/create', views.StockCreateView.as_view(), name='product_stock_create'),
+    path('product/stock/<uuid:pk>/update', views.StockUpdateView.as_view(), name='product_stock_update'),
+    
     path('product/images/create', views.ProductImagesCreateView.as_view(), name='product_images_create'),
+
+    path('product/images/<uuid:pk>/update', views.ProductImagesUpdateView.as_view(), name='product_images_update'),
+    
     
 ]
